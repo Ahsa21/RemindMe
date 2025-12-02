@@ -14,6 +14,9 @@
 		BBB228F12EDDD7770034173B /* RemindMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB228F02EDDD7770034173B /* RemindMeTests.swift */; };
 		BBB228FB2EDDD7770034173B /* RemindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB228FA2EDDD7770034173B /* RemindMeUITests.swift */; };
 		BBB228FD2EDDD7770034173B /* RemindMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB228FC2EDDD7770034173B /* RemindMeUITestsLaunchTests.swift */; };
+		BBB2290A2EDDDC5E0034173B /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB229092EDDDC5D0034173B /* LoginPage.swift */; };
+		BBB2290C2EDDDD020034173B /* NewReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2290B2EDDDD020034173B /* NewReminder.swift */; };
+		BBB2290F2EDE44B70034173B /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2290E2EDE44B60034173B /* Textfield.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		BBB228F62EDDD7770034173B /* RemindMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB228FA2EDDD7770034173B /* RemindMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeUITests.swift; sourceTree = "<group>"; };
 		BBB228FC2EDDD7770034173B /* RemindMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBB229092EDDDC5D0034173B /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		BBB2290B2EDDDD020034173B /* NewReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminder.swift; sourceTree = "<group>"; };
+		BBB2290E2EDE44B60034173B /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			children = (
 				BBB228DF2EDDD7720034173B /* RemindMeApp.swift */,
 				BBB228E12EDDD7720034173B /* ContentView.swift */,
+				BBB229092EDDDC5D0034173B /* LoginPage.swift */,
+				BBB2290B2EDDDD020034173B /* NewReminder.swift */,
+				BBB2290D2EDE44970034173B /* Components */,
 				BBB228E32EDDD7760034173B /* Assets.xcassets */,
 				BBB228E52EDDD7760034173B /* Preview Content */,
 			);
@@ -125,6 +134,14 @@
 				BBB228FC2EDDD7770034173B /* RemindMeUITestsLaunchTests.swift */,
 			);
 			path = RemindMeUITests;
+			sourceTree = "<group>";
+		};
+		BBB2290D2EDE44970034173B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BBB2290E2EDE44B60034173B /* Textfield.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB2290C2EDDDD020034173B /* NewReminder.swift in Sources */,
 				BBB228E22EDDD7720034173B /* ContentView.swift in Sources */,
 				BBB228E02EDDD7720034173B /* RemindMeApp.swift in Sources */,
+				BBB2290F2EDE44B70034173B /* Textfield.swift in Sources */,
+				BBB2290A2EDDDC5E0034173B /* LoginPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
