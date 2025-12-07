@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Textfield: View {
     @State var text = "text"
-    @State var input = ""
+    @Binding var input: String
     @State var height: CGFloat = 100
     
     var body: some View {
@@ -35,6 +35,19 @@ struct Textfield: View {
     }
 }
 
+
+
+
 #Preview {
-    Textfield()
+    
+    struct test: View {
+        @State var Thetest = ""
+        var body: some View {
+            Textfield(input: $Thetest)
+        }
+    }
+    
+    return test()
+    
 }
+

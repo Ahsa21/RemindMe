@@ -20,11 +20,30 @@ import Firebase
     
     var ref = Database.database().reference()
     
-
-    
-    func add(name:String) {
-        ref.child("users").child(userid!).child("name").setValue(name)
+    func addNote(name:String, note: String, date: Date, when: String) {
+        //let TheNote = ref.child("users").child(userid!).child(name)
+        let reminderPath = ref.child("users").child(userid!).child("reminders").child(name)
+        
+        let timestamp = date.timeIntervalSince1970
+        
+        let reminderData: [String: Any] = [
+                    "name": name, // Storing name just for completeness, though it's also the key
+                    "note": note,
+                    "dateTimestamp": timestamp, // Save as a Double for sorting/retrieval
+                    "dateString": ISO8601DateFormatter().string(from: date), // Optional: Save as readable string too,
+                    "when": when
+                ]
+        
+        reminderPath.setValue(reminderData) { error, databaseRef in
+                    if let error = error {
+                        print("🚨 Error saving note '\(name)': \(error.localizedDescription)")
+                    } else {
+                        print("✅ Note '\(name)' saved successfully.")
+                    }
+                }
     }
+    
+
     
     
     func signIn() async {
