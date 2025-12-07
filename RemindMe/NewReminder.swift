@@ -10,6 +10,7 @@ import SwiftUI
 struct NewReminder: View {
     @State var setAlways = false
     @State var setDate = false
+    @State var Theroot : roots = roots()
     var body: some View {
         VStack{
             Text("New Reminder")
@@ -58,7 +59,9 @@ struct NewReminder: View {
                     
                     
                     Button(action: {
+                        Theroot.add()
                         setDate = !setDate
+                        
                     }) {
                         Text("Set date")
                             .fontWeight(.bold)
@@ -85,7 +88,7 @@ struct NewReminder: View {
 }
 
 #Preview {
-    NewReminder()
+    NewReminder(Theroot: roots())
 }
 
 

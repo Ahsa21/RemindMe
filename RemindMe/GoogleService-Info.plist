@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>159390717502-7a87f2cr0uqq0jgnr4upeaqjtiak50uc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.159390717502-7a87f2cr0uqq0jgnr4upeaqjtiak50uc</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDZELXtdw3Ud1g2DpyXKlQUDiqmBWlWLFE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>159390717502</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>se.ahmad.RemindMe</string>
+	<key>PROJECT_ID</key>
+	<string>remindme-363ac</string>
+	<key>STORAGE_BUCKET</key>
+	<string>remindme-363ac.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:159390717502:ios:defa9e6d4ba49989b5e36f</string>
+</dict>
+</plist>

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginPage: View {
+    @State var Theroots : roots = roots()
     var body: some View {
         VStack {
             Image("Reminder")
@@ -33,7 +34,9 @@ struct LoginPage: View {
             Spacer()
                 .frame(height: 30)
             Button(action: {
-                
+                Task {
+                    await Theroots.signIn()
+                }
             }) {
                 Text("Login med google")
                     .fontWeight(.bold)
@@ -55,5 +58,5 @@ struct LoginPage: View {
 }
 
 #Preview {
-    LoginPage()
+    LoginPage(Theroots: roots())
 }
