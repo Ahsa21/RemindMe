@@ -20,6 +20,43 @@ import Firebase
     
     var ref = Database.database().reference()
     
+    var personLi : [String: item] = [:]
+    
+    
+    func loadData() async {
+        print("f")
+        do {
+            let data = try await ref
+                .child("users")
+                .child(userid!)
+                .child("reminders")
+                .getData()
+
+            for child in data.children {
+                if let snap = child as? DataSnapshot,
+                   let dict = snap.value as? [String: Any] {
+
+                    let name = dict["name"] as? String ?? ""
+                    let note = dict["note"] as? String ?? ""
+                    let date = dict["date"] as? TimeInterval ?? Date().timeIntervalSince1970
+                    let when = dict["when"] as? String ?? ""
+
+                    personLi[name] = item(
+                        itemName: name,
+                        Note: note,
+                        Date: Date(timeIntervalSince1970: date)
+                    )
+
+                    print(personLi)
+                }
+            }
+
+        } catch {
+            print("❌ Error loading data:", error)
+        }
+
+    }
+    
     func addNote(name:String, note: String, date: Date, when: String) {
         //let TheNote = ref.child("users").child(userid!).child(name)
         let reminderPath = ref.child("users").child(userid!).child("reminders").child(name)

@@ -12,30 +12,34 @@ import FirebaseAuth
 
 struct ContentView: View {
     @State var isloggedIn: Bool?
-    //@State var root: roots
+    @State private var paths = NavigationPath()
+
     var body: some View {
-        VStack {
-            if isloggedIn == true {
-                NewReminder()
-            }
-            if isloggedIn == false {
-                LoginPage()
-            }
-        }
-        .onAppear() {
-            Auth.auth().addStateDidChangeListener { auth, user in
-                if user == nil {
-                    isloggedIn = false
-                } else {
-                    isloggedIn = true
+        NavigationStack(path: $paths) {   // <<< IMPORTANT
+            VStack {
+                if isloggedIn == true {
+                    StartPage(paths: $paths)
+                } else if isloggedIn == false {
+                    LoginPage()
                 }
             }
-            
+            .navigationDestination(for: appRoute.self) { route in
+                switch route {
+                case .StartPage:
+                    StartPage(paths: $paths)
+
+                case .LoginPage:
+                    LoginPage()
+
+                case .NewReminder(let item):
+                    NewReminder(Item: item)
+                }
+            }
+        }
+        .onAppear {
+            Auth.auth().addStateDidChangeListener { auth, user in
+                isloggedIn = (user != nil)
+            }
         }
     }
 }
-
-#Preview {
-    ContentView()
-}
-

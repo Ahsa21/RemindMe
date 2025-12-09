@@ -24,6 +24,10 @@
 		BBB2290C2EDDDD020034173B /* NewReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2290B2EDDDD020034173B /* NewReminder.swift */; };
 		BBB2290F2EDE44B70034173B /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2290E2EDE44B60034173B /* Textfield.swift */; };
 		BBF3BF782EE5C46B009B57AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBF3BF772EE5C46B009B57AD /* GoogleService-Info.plist */; };
+		BBF3BF7C2EE63B07009B57AD /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF7B2EE63B07009B57AD /* StartPage.swift */; };
+		BBF3BF7E2EE63B26009B57AD /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF7D2EE63B26009B57AD /* TopBar.swift */; };
+		BBF3BF802EE642C1009B57AD /* BottonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF7F2EE642C1009B57AD /* BottonStyle.swift */; };
+		BBF3BF822EE64B30009B57AD /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF812EE64B30009B57AD /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		BBB2290B2EDDDD020034173B /* NewReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminder.swift; sourceTree = "<group>"; };
 		BBB2290E2EDE44B60034173B /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		BBF3BF772EE5C46B009B57AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BBF3BF7B2EE63B07009B57AD /* StartPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPage.swift; sourceTree = "<group>"; };
+		BBF3BF7D2EE63B26009B57AD /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		BBF3BF7F2EE642C1009B57AD /* BottonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonStyle.swift; sourceTree = "<group>"; };
+		BBF3BF812EE64B30009B57AD /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +127,9 @@
 				BBF3BF772EE5C46B009B57AD /* GoogleService-Info.plist */,
 				BB559DC22EE08A4200C78299 /* rootFunctions.swift */,
 				BBB229092EDDDC5D0034173B /* LoginPage.swift */,
+				BBF3BF812EE64B30009B57AD /* Models.swift */,
 				BBB2290B2EDDDD020034173B /* NewReminder.swift */,
+				BBF3BF7B2EE63B07009B57AD /* StartPage.swift */,
 				BBB2290D2EDE44970034173B /* Components */,
 				BBB228E32EDDD7760034173B /* Assets.xcassets */,
 				BBB228E52EDDD7760034173B /* Preview Content */,
@@ -156,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				BBB2290E2EDE44B60034173B /* Textfield.swift */,
+				BBF3BF7D2EE63B26009B57AD /* TopBar.swift */,
+				BBF3BF7F2EE642C1009B57AD /* BottonStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -302,12 +314,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF3BF802EE642C1009B57AD /* BottonStyle.swift in Sources */,
 				BBB2290C2EDDDD020034173B /* NewReminder.swift in Sources */,
 				BB559DC32EE08A4200C78299 /* rootFunctions.swift in Sources */,
+				BBF3BF7C2EE63B07009B57AD /* StartPage.swift in Sources */,
 				BBB228E22EDDD7720034173B /* ContentView.swift in Sources */,
 				BBB228E02EDDD7720034173B /* RemindMeApp.swift in Sources */,
 				BBB2290F2EDE44B70034173B /* Textfield.swift in Sources */,
 				BBB2290A2EDDDC5E0034173B /* LoginPage.swift in Sources */,
+				BBF3BF7E2EE63B26009B57AD /* TopBar.swift in Sources */,
+				BBF3BF822EE64B30009B57AD /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

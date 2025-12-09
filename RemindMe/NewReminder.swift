@@ -11,6 +11,7 @@ struct NewReminder: View {
     @State var setAlways = false
     @State var setDate = false
     @State var Theroot : roots = roots()
+    @State var Item: item? = nil
     
     @State var NoteName: String = "f"
     @State var Note: String = ""
@@ -19,6 +20,7 @@ struct NewReminder: View {
     @State var when: String? = nil
     var body: some View {
         VStack{
+            
             Text("New Reminder")
                 .font(.title)
                 .fontWeight(.bold)
@@ -119,11 +121,19 @@ struct NewReminder: View {
                     .foregroundColor(.white)
             }
         }
+        .task{
+            if Item != nil {
+                NoteName = Item!.itemName
+                Note = Item!.Note
+                date = Item!.Date
+                
+            }
+        }
     }
 }
 
 #Preview {
-    NewReminder(Theroot: roots())
+    NewReminder(Theroot: roots(), Item: item(itemName: "", Note: "", Date: Date()))
 }
 
 
