@@ -8,31 +8,33 @@
 import SwiftUI
 
 struct TopBar: View {
+
+    @Binding var isEditing: Bool
+    let onRemove: () -> Void
+
     var body: some View {
-        HStack{
+        HStack {
             Text("My List")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(Color.black)
-                .padding(.leading)
-            
+
             Spacer()
-            
-            Button(action:{
-                
-            }) {
-                Text("Edit")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.black)
-                    .padding(.trailing)
+
+            if isEditing {
+                Button("Remove") {
+                    onRemove()
+                }
+                .foregroundColor(.red)
+                .padding(.trailing)
             }
+
+            Button(isEditing ? "Done" : "Edit") {
+                isEditing.toggle()
+            }
+            .fontWeight(.bold)
         }
-        
-        
-        
+        .padding()
     }
 }
 
-#Preview {
-    TopBar()
-}
+

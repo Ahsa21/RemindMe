@@ -24,7 +24,6 @@ import Firebase
     
     
     func loadData() async {
-        print("f")
         do {
             let data = try await ref
                 .child("users")
@@ -32,34 +31,42 @@ import Firebase
                 .child("reminders")
                 .getData()
 
-            for child in data.children {
-                if let snap = child as? DataSnapshot,
-                   let dict = snap.value as? [String: Any] {
+            for case let snap as DataSnapshot in data.children {
 
-                    let name = dict["name"] as? String ?? ""
-                    let note = dict["note"] as? String ?? ""
-                    let date = dict["date"] as? TimeInterval ?? Date().timeIntervalSince1970
-                    let when = dict["when"] as? String ?? ""
+                guard let dict = snap.value as? [String: Any] else { continue }
 
-                    personLi[name] = item(
-                        itemName: name,
-                        Note: note,
-                        Date: Date(timeIntervalSince1970: date)
-                    )
+                let id = snap.key   // 🔑 auto-generated key
+                let name = dict["name"] as? String ?? ""
+                let note = dict["note"] as? String ?? ""
+                let date = dict["date"] as? TimeInterval ?? Date().timeIntervalSince1970
+                let when = dict["when"] as? String ?? ""
 
-                    print(personLi)
-                }
+                personLi[id] = item(
+                    itemName: name,
+                    Note: note,
+                    Date: Date(timeIntervalSince1970: date)
+                )
             }
+
+            print(personLi)
 
         } catch {
             print("❌ Error loading data:", error)
         }
-
+    }
+    
+    func RemoveNote(noteId: String) {
+        ref
+            .child("users")
+            .child(userid!)
+            .child("reminders")
+            .child(noteId)
+            .removeValue()
     }
     
     func addNote(name:String, note: String, date: Date, when: String) {
         //let TheNote = ref.child("users").child(userid!).child(name)
-        let reminderPath = ref.child("users").child(userid!).child("reminders").child(name)
+        let reminderPath = ref.child("users").child(userid!).child("reminders").childByAutoId().child(name)
         
         let timestamp = date.timeIntervalSince1970
         
