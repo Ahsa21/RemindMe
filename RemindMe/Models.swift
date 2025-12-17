@@ -19,6 +19,7 @@ struct item: Identifiable, Observable, Hashable, Equatable {
 
 enum appRoute: Hashable {
     case StartPage
-    case NewReminder(theitem:item)
+    case NewReminder(theitem:item?)
     case LoginPage
+    case Logout
 }

@@ -33,6 +33,9 @@ struct ContentView: View {
 
                 case .NewReminder(let item):
                     NewReminder(Item: item)
+                    
+                case .Logout:
+                    Signout()
                 }
             }
         }

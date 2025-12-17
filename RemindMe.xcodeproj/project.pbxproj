@@ -28,6 +28,7 @@
 		BBF3BF7E2EE63B26009B57AD /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF7D2EE63B26009B57AD /* TopBar.swift */; };
 		BBF3BF802EE642C1009B57AD /* BottonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF7F2EE642C1009B57AD /* BottonStyle.swift */; };
 		BBF3BF822EE64B30009B57AD /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF812EE64B30009B57AD /* Models.swift */; };
+		BBF3BF842EF31695009B57AD /* SignOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3BF832EF31695009B57AD /* SignOut.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		BBF3BF7D2EE63B26009B57AD /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		BBF3BF7F2EE642C1009B57AD /* BottonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonStyle.swift; sourceTree = "<group>"; };
 		BBF3BF812EE64B30009B57AD /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		BBF3BF832EF31695009B57AD /* SignOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOut.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				BBF3BF812EE64B30009B57AD /* Models.swift */,
 				BBB2290B2EDDDD020034173B /* NewReminder.swift */,
 				BBF3BF7B2EE63B07009B57AD /* StartPage.swift */,
+				BBF3BF832EF31695009B57AD /* SignOut.swift */,
 				BBB2290D2EDE44970034173B /* Components */,
 				BBB228E32EDDD7760034173B /* Assets.xcassets */,
 				BBB228E52EDDD7760034173B /* Preview Content */,
@@ -316,6 +319,7 @@
 			files = (
 				BBF3BF802EE642C1009B57AD /* BottonStyle.swift in Sources */,
 				BBB2290C2EDDDD020034173B /* NewReminder.swift in Sources */,
+				BBF3BF842EF31695009B57AD /* SignOut.swift in Sources */,
 				BB559DC32EE08A4200C78299 /* rootFunctions.swift in Sources */,
 				BBF3BF7C2EE63B07009B57AD /* StartPage.swift in Sources */,
 				BBB228E22EDDD7720034173B /* ContentView.swift in Sources */,

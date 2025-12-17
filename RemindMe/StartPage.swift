@@ -49,7 +49,6 @@ struct StartPage: View {
                         } label: {
                             HStack(spacing: 12) {
 
-                                // ⭕ Selection circle (only in edit mode)
                                 if isEditing {
                                     Image(systemName: isSelected
                                           ? "checkmark.circle.fill"
@@ -68,6 +67,25 @@ struct StartPage: View {
                     }
                 }
                 .padding(.vertical)
+            }
+            
+            Spacer()
+            
+            HStack {
+                Button(action: {
+                    paths.append(appRoute.NewReminder(theitem: nil))
+                }) {
+                    Image("Plus")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 50)
+                    Text("New Reminder")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.green)
+                }
+                .padding(.leading)
+
+                Spacer()
             }
         }
         .task {

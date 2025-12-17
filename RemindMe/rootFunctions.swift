@@ -25,35 +25,39 @@ import Firebase
     
     func loadData() async {
         do {
+            guard let userid = userid else { return }
+
             let data = try await ref
                 .child("users")
-                .child(userid!)
+                .child(userid)
                 .child("reminders")
                 .getData()
 
             for case let snap as DataSnapshot in data.children {
 
-                guard let dict = snap.value as? [String: Any] else { continue }
+                let id = snap.key   // auto-generated reminder ID
 
-                let id = snap.key   // 🔑 auto-generated key
-                let name = dict["name"] as? String ?? ""
-                let note = dict["note"] as? String ?? ""
-                let date = dict["date"] as? TimeInterval ?? Date().timeIntervalSince1970
-                let when = dict["when"] as? String ?? ""
+                let name = snap.childSnapshot(forPath: "name").value as? String ?? ""
+                let note = snap.childSnapshot(forPath: "note").value as? String ?? ""
+                let timestamp = snap.childSnapshot(forPath: "dateTimestamp").value as? TimeInterval ?? 0
+                let when = snap.childSnapshot(forPath: "when").value as? String ?? ""
 
                 personLi[id] = item(
+                    //id: id,                       // 👈 important for edit/delete
                     itemName: name,
                     Note: note,
-                    Date: Date(timeIntervalSince1970: date)
+                    Date: Date(timeIntervalSince1970: timestamp)
+                    //when: when
                 )
             }
 
             print(personLi)
 
         } catch {
-            print("❌ Error loading data:", error)
+            print("❌ Error loading data:", error.localizedDescription)
         }
     }
+
     
     func RemoveNote(noteId: String) {
         ref
@@ -64,27 +68,41 @@ import Firebase
             .removeValue()
     }
     
-    func addNote(name:String, note: String, date: Date, when: String) {
-        //let TheNote = ref.child("users").child(userid!).child(name)
-        let reminderPath = ref.child("users").child(userid!).child("reminders").childByAutoId().child(name)
-        
-        let timestamp = date.timeIntervalSince1970
-        
+    func addNote(name: String, note: String, date: Date, when: String) {
+
+        guard let userid = userid else { return }
+
+        let reminderRef = ref
+            .child("users")
+            .child(userid)
+            .child("reminders")
+            .childByAutoId()   // ONLY autoId here
+
         let reminderData: [String: Any] = [
-                    "name": name, // Storing name just for completeness, though it's also the key
-                    "note": note,
-                    "dateTimestamp": timestamp, // Save as a Double for sorting/retrieval
-                    "dateString": ISO8601DateFormatter().string(from: date), // Optional: Save as readable string too,
-                    "when": when
-                ]
-        
-        reminderPath.setValue(reminderData) { error, databaseRef in
-                    if let error = error {
-                        print("🚨 Error saving note '\(name)': \(error.localizedDescription)")
-                    } else {
-                        print("✅ Note '\(name)' saved successfully.")
-                    }
-                }
+            "name": name,
+            "note": note,
+            "dateTimestamp": date.timeIntervalSince1970,
+            "dateString": ISO8601DateFormatter().string(from: date),
+            "when": when
+        ]
+
+        reminderRef.setValue(reminderData) { error, _ in
+            if let error = error {
+                print("🚨 Error saving reminder: \(error.localizedDescription)")
+            } else {
+                print("✅ Reminder saved successfully.")
+            }
+        }
+    }
+
+    
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("failed to Sign Out")
+        }
     }
     
 
