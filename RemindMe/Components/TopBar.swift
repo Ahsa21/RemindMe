@@ -11,12 +11,20 @@ struct TopBar: View {
 
     @Binding var isEditing: Bool
     let onRemove: () -> Void
+    @Binding var path: NavigationPath
 
     var body: some View {
         HStack {
-            Text("My List")
-                .font(.title)
-                .fontWeight(.bold)
+            Button(action: {
+                path.append(appRoute.Logout)
+            }) {
+                Text("account")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                    
+                
+            }
 
             Spacer()
 
@@ -36,5 +44,6 @@ struct TopBar: View {
         .padding()
     }
 }
+
 
 

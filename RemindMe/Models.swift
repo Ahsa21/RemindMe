@@ -13,6 +13,7 @@ struct item: Identifiable, Observable, Hashable, Equatable {
     var itemName: String
     var Note: String
     var Date: Date
+    var when: String
     
 }
 

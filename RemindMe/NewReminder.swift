@@ -126,6 +126,15 @@ struct NewReminder: View {
                 NoteName = Item!.itemName
                 Note = Item!.Note
                 date = Item!.Date
+                when = Item!.when
+                
+                if Item!.when == "daily" {
+                        setAlways = true
+                        setDate = false
+                } else if Item!.when == "once" {
+                        setDate = true
+                        setAlways = false
+                    }
                 
             }
         }
@@ -133,7 +142,7 @@ struct NewReminder: View {
 }
 
 #Preview {
-    NewReminder(Theroot: roots(), Item: item(itemName: "", Note: "", Date: Date()))
+    NewReminder(Theroot: roots(), Item: item(itemName: "", Note: "", Date: Date(), when: "daily"))
 }
 
 

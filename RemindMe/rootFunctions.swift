@@ -46,8 +46,8 @@ import Firebase
                     //id: id,                       // 👈 important for edit/delete
                     itemName: name,
                     Note: note,
-                    Date: Date(timeIntervalSince1970: timestamp)
-                    //when: when
+                    Date: Date(timeIntervalSince1970: timestamp),
+                    when: when
                 )
             }
 

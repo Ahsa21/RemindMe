@@ -26,7 +26,8 @@ struct StartPage: View {
                     }
                     selectedNotes.removeAll()
                     isEditing = false
-                }
+                },
+                path: $paths
             )
 
             ScrollView {
